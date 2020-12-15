@@ -1,0 +1,25 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center center">
+    <div class="loginBox" fxLayout="column" fxlayoutAlign="center center">
+      <h1 fxLayoutAlign="center center">Products App</h1>
+      <h3 fxLayoutAlign="center center">Login to Manage Products</h3>
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <div fxLayoutAlign="center center">
+          <mat-form-field [style.width.vw]=22 appearance="outline">
+            <mat-label >Enter email-id or mobile number</mat-label>
+            <input class="inputField" [(ngModel)]="username" matInput />
+          </mat-form-field>
+        </div> 
+
+        <div>
+          <mat-form-field [style.width.vw]=22 appearance="outline">
+            <mat-label>Enter Password</mat-label>
+            <input [(ngModel)]="password" type="password"  matInput />
+          </mat-form-field>
+        </div>
+  
+        <button fxLayoutAlign="center end" mat-raised-button color="primary" (click)="localLogin()" style="width: 100px !important;" >Login</button>
+        <br />
+        <div>Don't have an account? <a routerLink="/signup">Sign up</a></div>
+      </div>
+    </div>
+</div>

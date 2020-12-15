@@ -1,0 +1,62 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center center">
+    <div class="loginBox" fxLayout="column" fxlayoutAlign="center center">
+      <h1 fxLayoutAlign="center center">Products App</h1>
+      <h3 fxLayoutAlign="center center">Register to Manage Products</h3>
+      <form #form="ngForm" novalidate [formGroup]='signupForm' (ngSubmit)="Submit()" fxLayout="column" fxLayoutAlign="center center">
+        <div fxLayout = "row" fxLayoutAlign="center center">
+          <mat-form-field [style.width.vw]=15 appearance="outline">
+            <mat-label>Enter email-id</mat-label>
+            <input formControlName="username" [(ngModel)] = "username" matInput required/>
+            <mat-error *ngIf="formErrors.username">{{formErrors.username}}</mat-error>
+          </mat-form-field>
+          &nbsp;&nbsp;&nbsp;
+          <mat-form-field [style.width.vw]=15 appearance="outline">
+            <mat-label>Enter Mobile Number</mat-label>
+            <input type="text" [(ngModel)]='mobile' maxlength="10" formControlName="mobile_Number" matInput  required/>
+            <mat-error  *ngIf="formErrors.mobile_Number">{{formErrors.mobile_Number}}</mat-error>
+          </mat-form-field>
+        </div> 
+
+        <div fxLayout='row' fxLayoutAlign="center center">
+          <mat-form-field [style.width.vw]=15 appearance="outline">
+            <mat-label>Enter Password</mat-label>
+            <input formControlName="password" type="password" required matInput />
+            <mat-error  *ngIf="formErrors.password">{{formErrors.password}}</mat-error>
+          </mat-form-field>
+          &nbsp;&nbsp;&nbsp;
+          <mat-form-field [style.width.vw]=15 appearance="outline">
+            <mat-label>Enter Name</mat-label>
+            <input formControlName="name" matInput required/>
+            <mat-error  *ngIf="formErrors.name">{{formErrors.name}}</mat-error>
+          </mat-form-field>
+        </div> 
+
+        <div fxLayout='row' fxLayoutAlign="center center">
+          <mat-form-field [style.width.vw]=15 appearance="outline">
+            <mat-label>Date of birth</mat-label>
+            <input matInput [max]="maxDate" formControlName="date_Of_Birth" [matDatepicker]="picker" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error  *ngIf="formErrors.date_Of_Birth">{{formErrors.date_Of_Birth}}</mat-error>
+          </mat-form-field>
+          &nbsp;&nbsp;&nbsp;
+          <mat-form-field [style.width.vw]=15 appearance="outline">
+            <mat-label>Age {{age}}</mat-label>
+            <input  formControlName="age" matInput required/>
+          </mat-form-field>
+        </div>
+ 
+        <div>
+          <mat-form-field [style.width.vw]=18 appearance='outline'>
+            <mat-label>Profile image</mat-label>
+            <ngx-mat-file-input formControlName='image'>
+            </ngx-mat-file-input>
+         </mat-form-field>
+        </div> 
+         <button mat-raised-button color="primary" type="submit" value="submit" [disabled]="signupForm.invalid" style="width: 100px !important;">Register</button>
+  
+        <br />
+        <div>Already have an account? <a routerLink="login">Login</a></div>
+      </form>
+    </div>
+  </div>

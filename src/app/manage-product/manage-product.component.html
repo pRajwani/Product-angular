@@ -1,0 +1,13 @@
+<app-tool-bar></app-tool-bar>
+<div class="wrapper" fxLayout='column' fxLayoutAlign="center center">
+    <div class="tableWrapper">
+        <div class="tableTitle" fxLayoutAlign='start start'>
+            Products List
+        </div>
+        <div >
+            <ng2-smart-table [settings]="settings" [source]="products" 
+            (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onSaveConfirm($event)"
+            (createConfirm)="onCreateConfirm($event)"></ng2-smart-table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<app-tool-bar></app-tool-bar>
+  <div class="adjustment" fxLayout='column' fxLayoutAlign="center center">
+    <div class='box' fxLayout="column" fxLayoutAlign="center start" >
+        <div class="profileImg" fxLayout='row'>
+          <img src='{{baseUrl + user.image}}' width="100" height="100">
+          
+          <div class="Name"  fxLayout='column' fxLayoutAlign="center center">
+            <h1>{{user.name}}</h1>
+            <small>Last Login - {{user.lastLogin | date:'short'}}</small>
+          </div> 
+        </div>
+        <div fxLayout="column" fxLayoutAlign='center start' class="Details">
+          <div fxLayout='row' fxLayoutAlign='center start'>
+            <mat-icon>alternate_email</mat-icon>
+            &nbsp;&nbsp;&nbsp;
+            <h3>Email - {{user.username}}</h3>
+          </div>
+          <div fxLayout='row' fxLayoutAlign='center start'>
+            <mat-icon>smartphone</mat-icon>
+            &nbsp;&nbsp;&nbsp;
+            <h3>Mobile - {{user.mobile_Number}}</h3>
+          </div>
+          <div fxLayout='row' fxLayoutAlign='center start'>
+            <mat-icon>cake</mat-icon>
+            &nbsp;&nbsp;&nbsp;
+            <h3>DOB - {{user.date_Of_Birth | date}}</h3>
+          </div>
+          <div fxLayout='row' fxLayoutAlign='center start'>
+            <mat-icon>date_range</mat-icon>
+            &nbsp;&nbsp;&nbsp;
+            <h3>Age - {{user.age}}</h3>
+          </div>   
+        </div>
+    </div>
+ </div>

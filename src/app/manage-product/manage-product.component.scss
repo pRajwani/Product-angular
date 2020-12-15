@@ -1,0 +1,34 @@
+
+.wrapper {
+    height: 80vh;
+}
+
+.tableWrapper {
+    width: 80%;
+    height: 90%;
+    border: 1px solid grey;
+    border-radius: 10px;
+    overflow-y: scroll;
+    background-color: white;
+}
+
+.tableTitle {
+    font-size: x-large;
+    margin: 2%;
+    border-bottom: 1px solid rgb(177, 176, 176);
+    padding-bottom: 2%;
+}
+
+::-webkit-scrollbar {
+    width: 1em; /* Remove scrollbar space */
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 7px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 7px;
+    
+  }
