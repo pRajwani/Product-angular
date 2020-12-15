@@ -61,7 +61,7 @@ export class SignupComponent implements OnInit {
       pattern: 'Mobile number starts with 6 or above is required',
     },
     date_Of_Birth: {
-      required: 'Mobile number is required',
+      required: 'Date of Birth is required',
     },
   };
 
@@ -93,7 +93,6 @@ export class SignupComponent implements OnInit {
   }
   validateMobile(mobile) {
     this.authService.checkMobileNumber(Number(mobile)).subscribe((resp) => {
-      console.log(resp.success);
       if (resp.success == true) this.sendData();
       else alert('Already registered mobile');
     });

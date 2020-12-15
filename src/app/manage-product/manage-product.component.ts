@@ -99,14 +99,11 @@ export class ManageProductComponent implements OnInit {
     var token = this.authService.getAccessToken();
     if (!token) {
       this.authService.getAToken().subscribe((token) => {
-        console.log('token status', token);
         if (token.status == false) {
-          console.log('in if cond');
           this.router.navigate(['login']);
           return;
         }
         this.authService.setUserDetails(token.result).subscribe((userData) => {
-          console.log('in retriving user');
           this.user = userData;
           this.authService.setUser(this.user);
           console.log(this.user);
