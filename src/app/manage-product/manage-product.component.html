@@ -4,7 +4,7 @@
         <div class="tableTitle" fxLayoutAlign='start start'>
             Products List
         </div>
-        <div >
+        <div class="table">
             <ng2-smart-table [settings]="settings" [source]="products" 
             (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onSaveConfirm($event)"
             (createConfirm)="onCreateConfirm($event)"></ng2-smart-table>

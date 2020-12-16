@@ -16,7 +16,10 @@ export class ToolBarComponent implements OnInit {
 
   logout() {
     this.authService.logout().subscribe((resp)=>{
-      if(resp.success == true) {this.router.navigate(['login']); location.reload();}
+      if(resp.success == true) {
+        this.router.navigate(['login']); 
+        location.reload();
+    }
     })
   }
 }

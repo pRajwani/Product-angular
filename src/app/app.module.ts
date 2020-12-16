@@ -29,6 +29,8 @@ import { MatListModule } from "@angular/material/list";
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { CustomInputEditorComponent } from "../app/manage-product/manage-product.component";
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HowToUseComponent } from './how-to-use/how-to-use.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     ImageEditorComponent,
     ToolBarComponent,
     ManageProductComponent,
-    CustomInputEditorComponent
+    CustomInputEditorComponent,
+    NotFoundComponent,
+    HowToUseComponent
   ],
   imports: [
     MatNativeDateModule,
