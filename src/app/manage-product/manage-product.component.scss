@@ -8,7 +8,7 @@
     height: 80vh;
     border: 1px solid grey;
     border-radius: 10px;
-    
+    animation: profileImg 1s ease-in;
     margin-bottom: -5%;
     background-color: white;
 }
@@ -23,3 +23,12 @@
     padding-bottom: 2%;
 }
 
+@keyframes profileImg {
+    0%  {
+        opacity: 0;
+        
+    }
+    100% {
+        opacity: 1;
+    }
+}

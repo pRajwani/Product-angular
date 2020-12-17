@@ -25,8 +25,6 @@ export class SignupComponent implements OnInit {
   image: File;
   username;
   imageName;
-  usernameAlreadyExist;
-  mobileAlreadyExist;
   mobile;
   constructor(
     private router: Router,
@@ -43,6 +41,7 @@ export class SignupComponent implements OnInit {
     password: '',
     mobile_Number: '',
     date_Of_Birth: '',
+    image: ''
   };
 
   validationMessages = {
@@ -63,6 +62,9 @@ export class SignupComponent implements OnInit {
     date_Of_Birth: {
       required: 'Date of Birth is required',
     },
+    image: {
+      required: 'Image is required'
+    }
   };
 
   ngOnInit(): void {
@@ -77,7 +79,7 @@ export class SignupComponent implements OnInit {
       mobile_Number: ['',[Validators.required, Validators.pattern(/^[6-9]\d{9}$/)],],
       date_Of_Birth: ['', Validators.required],
       age: new FormControl({ value: '', disabled: true }),
-      image: []
+      image: ['', Validators.required]
     });
     this.signupForm.valueChanges.subscribe((data) => {
       this.onValueChanges(data);

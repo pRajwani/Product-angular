@@ -2,11 +2,12 @@
   <div class="adjustment" fxLayout='column' fxLayoutAlign="center center">
     <div class='box' fxLayout="column" fxLayoutAlign="center start" >
         <div class="profileImg" fxLayout='row'>
-          <img src='{{baseUrl + user.image}}' width="100" height="100">
-          
+          <div class="imgShadow">
+            <img src='{{baseUrl + user.image}}' width="150" height="150">
+          </div>
           <div class="Name"  fxLayout='column' fxLayoutAlign="center center">
             <h1>{{user.name}}</h1>
-            <small>Last Login - {{user.lastLogin | date:'short'}}</small>
+            <h4>Last Login - {{user.lastLogin | date:'short'}}</h4>
           </div> 
         </div>
         <div fxLayout="column" fxLayoutAlign='center start' class="Details">

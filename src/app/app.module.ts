@@ -23,14 +23,14 @@ import { ImageRenderComponent } from './image-render/image-render.component';
 import { ImageEditorComponent } from './image-editor/image-editor.component';
 import { ToolBarComponent } from './tool-bar/tool-bar.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
-import {MatCardModule} from '@angular/material/card';
-import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { CustomInputEditorComponent } from "../app/manage-product/manage-product.component";
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {MatStepperModule} from '@angular/material/stepper';
 import { HowToUseComponent } from './how-to-use/how-to-use.component';
+import { authentication } from './services/authentication';
 
 @NgModule({
   declarations: [
@@ -62,13 +62,13 @@ import { HowToUseComponent } from './how-to-use/how-to-use.component';
     MatDialogModule,
     MatDatepickerModule,
     Ng2SmartTableModule,
-    MatCardModule,
-    MatSidenavModule,
     MatListModule,
+    MatStepperModule,
     NgxMatFileInputModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true},
-  {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  {provide: LocationStrategy, useClass: HashLocationStrategy},
+{provide: authentication, useFactory:authentication}],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
