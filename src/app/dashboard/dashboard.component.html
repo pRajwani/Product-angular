@@ -1,13 +1,14 @@
 <app-tool-bar></app-tool-bar>
   <div class="adjustment" fxLayout='column' fxLayoutAlign="center center">
-    <div class='box' fxLayout="column" fxLayoutAlign="center start" >
+    <div *ngIf='showDetails' class='box' fxLayout="column" fxLayoutAlign="center start" >
         <div class="profileImg" fxLayout='row'>
           <div class="imgShadow">
             <img src='{{baseUrl + user.image}}' width="150" height="150">
           </div>
           <div class="Name"  fxLayout='column' fxLayoutAlign="center center">
             <h1>{{user.name}}</h1>
-            <h4>Last Login - {{user.lastLogin | date:'short'}}</h4>
+            <h4 *ngIf = 'loginForFirstTime'>Last Login - Logged in for the first time.</h4>
+            <h4 *ngIf = '!loginForFirstTime'>Last Login - {{user.lastLogin | date:'short'}}</h4>
           </div> 
         </div>
         <div fxLayout="column" fxLayoutAlign='center start' class="Details">
@@ -32,5 +33,9 @@
             <h3>Age - {{user.age}}</h3>
           </div>   
         </div>
+    </div>
+
+    <div *ngIf='!showDetails' class="uploader-status">
+      <mat-spinner></mat-spinner>
     </div>
  </div>

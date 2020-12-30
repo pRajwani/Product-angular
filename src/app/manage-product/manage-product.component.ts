@@ -5,13 +5,14 @@ import { AuthService } from '../services/auth.service';
 import { ImageRenderComponent } from '../image-render/image-render.component';
 import { ImageEditorComponent } from '../image-editor/image-editor.component';
 import { DefaultEditor } from 'ng2-smart-table';
+import { authentication } from '../services/authentication';
 
 @Component({
   selector: 'app-manage-product',
   templateUrl: './manage-product.component.html',
   styleUrls: ['./manage-product.component.scss'],
 })
-export class ManageProductComponent implements OnInit {
+export class ManageProductComponent extends authentication implements OnInit {
   products: any;
   user;
   newProduct;
@@ -19,10 +20,14 @@ export class ManageProductComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private productService: ProductService
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
-    this.authentication();
+    var auth = new authentication();
+    auth.authenctication(this.authService, this.router);
+    this.setup();
   }
 
   setup() {
@@ -94,31 +99,6 @@ export class ManageProductComponent implements OnInit {
 
   //other Logics
 
-
-  authentication() {
-    var token = this.authService.getAccessToken();
-    if (!token) {
-      this.authService.getAToken().subscribe((token) => {
-        if (token.status == false) {
-          this.router.navigate(['login']);
-          return;
-        }
-        this.authService.setUserDetails(token.result).subscribe((userData) => {
-          this.user = userData;
-          this.authService.setUser(this.user);
-          console.log(this.user);
-          this.setup();
-        });
-      });
-    } else {
-      this.authService.setUserDetails(token).subscribe((userData) => {
-        this.user = userData;
-        this.authService.setUser(this.user);
-        this.setup();
-      });
-    }
-  }
-
   //smart-table settings
   settings = {
     delete: {
@@ -170,6 +150,8 @@ export class ManageProductComponent implements OnInit {
   };
 }
 
+
+//input editor for price
 @Component({
   selector: 'input-editor',
   template: `

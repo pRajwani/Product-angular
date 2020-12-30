@@ -31,6 +31,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { HowToUseComponent } from './how-to-use/how-to-use.component';
 import { authentication } from './services/authentication';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { PwaTestingComponent } from './pwa-testing/pwa-testing.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,8 @@ import { authentication } from './services/authentication';
     ManageProductComponent,
     CustomInputEditorComponent,
     NotFoundComponent,
-    HowToUseComponent
+    HowToUseComponent,
+    PwaTestingComponent
   ],
   imports: [
     MatNativeDateModule,
@@ -64,7 +69,9 @@ import { authentication } from './services/authentication';
     Ng2SmartTableModule,
     MatListModule,
     MatStepperModule,
-    NgxMatFileInputModule
+    NgxMatFileInputModule,
+    MatProgressSpinnerModule,
+    ServiceWorkerModule.register('service-worker.js', { enabled: environment.production })
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true},
   {provide: LocationStrategy, useClass: HashLocationStrategy},

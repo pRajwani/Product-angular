@@ -8,6 +8,7 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
 import { ToolBarComponent } from './tool-bar/tool-bar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HowToUseComponent } from './how-to-use/how-to-use.component';
+import { PwaTestingComponent } from "./pwa-testing/pwa-testing.component";
 
 
 const routes: Routes = [
@@ -18,7 +19,9 @@ const routes: Routes = [
   {path:'toolbar', component:ToolBarComponent},
   {path:'product', component:ManageProductComponent},
   {path:'how', component:HowToUseComponent},
+  {path:'pwa', component: PwaTestingComponent},
   {path:'**', component:NotFoundComponent}
+  
 ];
 
 @NgModule({

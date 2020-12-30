@@ -1,0 +1,20 @@
+<app-tool-bar></app-tool-bar>
+<div class="wrapper" fxLayout='column' fxLayoutAlign="center center">
+    <div class="contentWrapper">
+        <div class="contentTitle" fxLayoutAlign='start start'>
+            Pwa Testing
+        </div>
+        <form fxLayout='column' fxLayoutAlign = 'center center' [formGroup]='pwaForm'>
+            <mat-form-field appearance='outline'>
+                <mat-label>Name</mat-label>
+                <input matInput type="text" formControlName='name' [(ngModel)]='name'>
+            </mat-form-field>
+            <mat-form-field appearance='outline'>
+                <mat-label>Pwa image</mat-label>
+                <ngx-mat-file-input formControlName='image'>
+                </ngx-mat-file-input>
+             </mat-form-field>
+            <button mat-raised-button color='primary' (click)='send()'>Send</button>
+        </form>
+    </div>
+</div>

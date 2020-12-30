@@ -1,22 +1,25 @@
-
 .wrapper {
     height: 80vh;
 }
 
-.tableWrapper {
-    width: 80%;
-    height: 95%;
+.contentWrapper {
+    width: 40%;
+    height: auto;
     border: 1px solid grey;
     border-radius: 10px;
     animation: profileImg 1s ease-in;
     margin-bottom: -5%;
     background-color: white;
+    padding: 1%
 }
+
 .table {
-    height: 80%;
+    height: 65vh;
     overflow-y: scroll;
+    margin-left: 2%;
 }
-.tableTitle {
+
+.contentTitle {
     font-size: x-large;
     margin: 2%;
     border-bottom: 1px solid rgb(177, 176, 176);

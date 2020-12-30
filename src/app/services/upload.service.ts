@@ -14,4 +14,8 @@ export class UploadService {
     return this.http.post( baseUrl + "upload/profile", image);
   }
 
+  uploadProductImage(image):Observable<any> {
+    return this.http.post( baseUrl + 'upload/product',image);
+   }
+
 }

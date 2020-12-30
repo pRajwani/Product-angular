@@ -1,14 +1,8 @@
-.chatApp {
-    height: 60vh;
-    width: 20vw;
-    border-right: 2px solid grey;
-  }
-  
   .container {
     height: 100vh;
     }
   .loginBox {
-    height: 80vh;
+    height: auto;
     width: 40vw;
     box-shadow:
     0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -21,6 +15,7 @@
     background: white;
     border-radius: 5px;
     padding-top: 30px;
+    padding-bottom: 1%;
   }
 
   .fileUpload{

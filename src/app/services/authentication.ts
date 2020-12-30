@@ -1,25 +1,26 @@
 
 export class authentication {
-  constructor(public authService, public router) { }
+  constructor() { }
   user;
-  authenctication() {
-    var token = this.authService.getAccessToken();
+  async authenctication(authService, router) {
+    var token = await authService.getAccessToken();
     if (!token) {
-      this.authService.getAToken().subscribe((token) => {
+      authService.getAToken().subscribe((token) => {
         if (token.status == false) {
-          this.router.navigate(['login']);
+          router.navigate(['login']);
           return;
         }
-        this.authService.setUserDetails(token.result).subscribe((userData) => {
+        authService.setUserDetails(token.result).subscribe((userData) => {
           this.user = userData;
-          this.authService.setUser(this.user);
-          console.log(this.user);
+          authService.setUser(this.user);
+          return this.user;
         });
       });
     } else {
-      this.authService.setUserDetails(token).subscribe((userData) => {
+      authService.setUserDetails(token).subscribe((userData) => {
         this.user = userData;
-        this.authService.setUser(this.user);
+        authService.setUser(this.user);
+        return this.user;
       });
     }
   }

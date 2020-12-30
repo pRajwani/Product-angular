@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { authentication } from '../services/authentication';
 import { ProductService } from "../services/product.service";
 
 @Component({
@@ -8,48 +9,28 @@ import { ProductService } from "../services/product.service";
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent extends authentication implements OnInit{
 
-  constructor(private authService: AuthService, private router: Router, private productService: ProductService) { }
+  constructor(private authService: AuthService, private router: Router, private productService: ProductService) { 
+    super();
+  }
   user;
   products;
-  baseUrl= 'assets/images/profile/'
-  ngOnInit(): void {
-    this.authentication();
+  baseUrl= 'assets/images/profile/';
+  auth = new authentication();
+  showDetails = false;
+  loginForFirstTime = false;
+  ngOnInit() { 
+    this.auth.authenctication(this.authService, this.router);
+    setTimeout(()=>{
+      this.setup()
+    } , 1000)
   }
-
   setup() {
+    this.user = this.auth.user;
     if(!this.user.lastLogin)
-      this.user.lastLogin = "First Time Logged in";
+      this.loginForFirstTime = true;
+    this.showDetails = true;
   }
-
-  
-
-  authentication() {
-    var token = this.authService.getAccessToken()
-    if(!token) {
-      this.authService.getAToken().subscribe((token)=>{
-      if(token.status == false){
-        this.router.navigate(['login']);
-        return;
-      }
-      this.authService.setUserDetails(token.result).subscribe((userData)=>{
-        this.user = userData;
-        this.authService.setUser(this.user);
-        console.log(this.user);
-        this.setup();
-        })
-      })
-    }
-    else {
-      this.authService.setUserDetails(token).subscribe((userData)=>{
-        this.user = userData;
-        this.authService.setUser(this.user);
-        this.setup();
-      })
-    }
-  }
-
-
-  
+ 
 }

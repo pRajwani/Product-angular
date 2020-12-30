@@ -10,12 +10,11 @@ import { authentication } from "../services/authentication";
 })
 export class HowToUseComponent extends authentication implements OnInit {
 
-  constructor(public authService: AuthService, router:Router) { 
-    super(authService, router);
+  constructor(public authService: AuthService, public router:Router) { 
+    super();
   }
-  router = this.router;
   ngOnInit(): void {
-    var auth = new authentication(this.authService, this.router);
-    auth.authenctication();
+    var auth = new authentication();
+    auth.authenctication(this.authService, this.router);
   }
 }
